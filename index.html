@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name · Mathematics</title>
+<meta name="description" content="Homepage of Your Name, mathematician working in motivic homotopy theory and algebraic vector bundles.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- KaTeX: write math as $...$ or \( ... \) anywhere on the page -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}]})"></script>
+
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --text: #1f1d1a;
+    --muted: #6b665e;
+    --rule: #e4e0d8;
+    --accent: #7a2e1f;
+    --accent-soft: #f3e9e5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161514;
+      --text: #e9e5de;
+      --muted: #a29c92;
+      --rule: #2e2b28;
+      --accent: #e0957f;
+      --accent-soft: #2a1f1b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .wrap {
+    display: flex; gap: 22px; flex-wrap: wrap;
+    padding-top: 14px; padding-bottom: 14px;
+    font-family: Inter, system-ui, sans-serif; font-size: 14px;
+  }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+  nav .home { color: var(--text); font-weight: 500; margin-right: auto; }
+
+  header { padding: 56px 0 24px; display: flex; gap: 32px; align-items: center; }
+  header img {
+    width: 150px; height: 150px; object-fit: cover; border-radius: 50%;
+    flex-shrink: 0; background: var(--rule);
+  }
+  h1 { font-size: 2.3em; font-weight: 500; margin: 0 0 4px; line-height: 1.1; }
+  .role { color: var(--muted); margin: 0; }
+  .contact {
+    margin-top: 12px;
+    font-family: Inter, system-ui, sans-serif; font-size: 14px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  section { padding: 28px 0; border-top: 1px solid var(--rule); }
+  h2 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 16px;
+  }
+
+  ol.pubs, ul.plain { list-style: none; padding: 0; margin: 0; }
+  ol.pubs li { margin-bottom: 18px; }
+  .title { font-style: italic; }
+  .meta { color: var(--muted); }
+  .links { font-family: Inter, system-ui, sans-serif; font-size: 13px; margin-left: 4px; }
+  .links a {
+    display: inline-block; padding: 1px 7px; margin-right: 4px;
+    background: var(--accent-soft); border-radius: 4px; text-decoration: none;
+  }
+  details summary { cursor: pointer; color: var(--muted); font-size: 0.85em; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▸ "; }
+  details[open] summary::before { content: "▾ "; }
+  details p { font-size: 0.92em; margin: 6px 0 0; }
+
+  ul.plain li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; margin-bottom: 8px; }
+  .date { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  footer {
+    border-top: 1px solid var(--rule); padding: 24px 0 48px;
+    color: var(--muted); font-family: Inter, system-ui, sans-serif; font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 18px; }
+    header { flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 36px; }
+    header img { width: 120px; height: 120px; }
+    ul.plain li { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="home" href="#">Your Name</a>
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#talks">Talks</a>
+    <a href="#teaching">Teaching</a>
+    <a href="cv.pdf">CV</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header>
+    <!-- Put a square photo named photo.jpg in the repo, or delete this line -->
+    <img src="photo.jpg" alt="Photo of Your Name">
+    <div>
+      <h1>Your Name</h1>
+      <p class="role">Position Title<br>Department of Mathematics, University Name</p>
+      <div class="contact">
+        <a href="mailto:you@university.edu">you@university.edu</a>
+        <a href="https://arxiv.org/a/YOUR_ARXIV_ID">arXiv</a>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
+        <a href="cv.pdf">CV</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="research">
+    <h2>Research</h2>
+    <p>
+      I work in motivic homotopy theory, using $\mathbb{A}^1$-homotopy-theoretic methods to
+      attack questions in algebra and algebraic geometry. Most recently I have been studying
+      algebraic vector bundles: when they split, when they admit nowhere-vanishing sections,
+      and what obstructions control this.
+    </p>
+    <p>
+      My thesis studied when the canonical map between Stiefel varieties admits a section, a
+      question that governs when a free summand can be split off a stably free module and which
+      serves as an algebraic analogue of the classical problem of vector fields on spheres.
+      I am also interested in algebraic topology more broadly.
+    </p>
+  </section>
+
+  <section id="papers">
+    <h2>Papers &amp; preprints</h2>
+    <ol class="pubs">
+      <li>
+        <span class="title">Title of a preprint</span>, with Coauthor Name.
+        <span class="meta">Preprint, 2026.</span>
+        <span class="links"><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv</a></span>
+        <details>
+          <summary>Abstract</summary>
+          <p>Abstract goes here. Inline math like $\mathrm{SL}_n / \mathrm{SL}_{n-1}$ renders automatically.</p>
+        </details>
+      </li>
+      <li>
+        <span class="title">Title of a published paper</span>.
+        <span class="meta">Journal Name <b>vol</b> (2025), pages.</span>
+        <span class="links">
+          <a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv</a>
+          <a href="https://doi.org/XX.XXXX/XXXXX">journal</a>
+        </span>
+        <details>
+          <summary>Abstract</summary>
+          <p>Abstract goes here.</p>
+        </details>
+      </li>
+      <li>
+        <span class="title">Thesis title</span>.
+        <span class="meta">PhD thesis, University Name, Year. Advisor: Advisor Name.</span>
+        <span class="links"><a href="thesis.pdf">pdf</a></span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Selected talks</h2>
+    <ul class="plain">
+      <li><span class="date">Oct 2026</span><span>Talk title. <span class="meta">Seminar name, University.</span> <span class="links"><a href="slides.pdf">slides</a></span></span></li>
+      <li><span class="date">Jun 2026</span><span>Talk title. <span class="meta">Conference name, City.</span></span></li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <ul class="plain">
+      <li><span class="date">Fall 2026</span><span>Course number: Course title <span class="meta">(instructor)</span></span></li>
+      <li><span class="date">Spring 2026</span><span>Course number: Course title <span class="meta">(TA)</span></span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Last updated October 2026.</div>
+</footer>
+
+</body>
+</html>
