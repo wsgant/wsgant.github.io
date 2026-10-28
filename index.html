@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="color-scheme" content="light">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sebastian Gant</title>
+<meta name="description" content="Homepage of Sebastian Gant">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- KaTeX: write math as $...$ or \( ... \) anywhere on the page -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}]})"></script>
+
+<style>
+  :root {
+    --bg: #f7f1e3;
+    --text: #1f1d1a;
+    --muted: #6b665e;
+    --rule: #e2d9c4;
+    --accent: #7a2e1f;
+    --accent-soft: #f3e9e5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .wrap {
+    display: flex; gap: 22px; flex-wrap: wrap;
+    padding-top: 14px; padding-bottom: 14px;
+    font-family: Inter, system-ui, sans-serif; font-size: 14px;
+  }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+  nav .home { color: var(--text); font-weight: 500; margin-right: auto; }
+
+  header { padding: 48px 0 28px; display: flex; gap: 40px; align-items: center; justify-content: space-between; }
+  header img {
+    width: 270px; height: 270px; object-fit: cover;
+    flex-shrink: 0; background: var(--rule);
+  }
+  h1 small { font-size: 0.42em; color: var(--muted); font-weight: 400; margin-left: 6px; }
+  h1 { font-size: 2.3em; font-weight: 500; margin: 0 0 4px; line-height: 1.1; }
+  .role { color: var(--muted); margin: 0; }
+  .contact {
+    margin-top: 12px;
+    font-family: Inter, system-ui, sans-serif; font-size: 14px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  section { padding: 28px 0; border-top: 1px solid var(--rule); }
+  /* keep section titles visible below the sticky menu when jumping to them */
+  section { scroll-margin-top: 46px; }
+  h2 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2::before {
+    content: ""; width: 18px; height: 3px; border-radius: 2px; background: var(--accent);
+  }
+
+  ol.pubs, ul.plain { list-style: none; padding: 0; margin: 0; }
+  ol.pubs li { margin-bottom: 18px; }
+  .title { font-style: italic; }
+  ul.interests { margin: 8px 0 0; padding-left: 1.2em; }
+  ul.interests li { margin-bottom: 2px; }
+  ol.axioms { padding-left: 1.4em; margin: 8px 0 0; }
+  ol.axioms li { margin-bottom: 6px; }
+  h3 { font-size: 1em; font-weight: 600; margin: 28px 0 6px; }
+  .meta { color: var(--muted); }
+  .links { font-family: Inter, system-ui, sans-serif; font-size: 13px; margin-left: 4px; }
+  .links a {
+    display: inline-block; padding: 1px 7px; margin-right: 4px;
+    background: var(--accent-soft); border-radius: 4px; text-decoration: none;
+  }
+  details summary { cursor: pointer; color: var(--muted); font-size: 0.85em; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▸ "; }
+  details[open] summary::before { content: "▾ "; }
+  details p { font-size: 0.92em; margin: 6px 0 0; }
+
+  ul.plain li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; margin-bottom: 8px; }
+  .date { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  footer {
+    border-top: 1px solid var(--rule); padding: 24px 0 48px;
+    color: var(--muted); font-family: Inter, system-ui, sans-serif; font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    header { flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 36px; }
+    header img { width: 200px; height: 200px; order: -1; }
+    ul.plain li { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="home" href="#">Sebastian Gant</a>
+    <a href="#bio">About me</a>
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#teaching">Teaching</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header>
+    <div>
+      <h1>Sebastian Gant<small>(he/they)</small></h1>
+      <p class="role">Postdoc, SLMath</p>
+      <div class="contact">
+        <span>wsgant [at] math [dot] ubc [dot] ca</span>
+        <a href="CV.pdf">CV</a>
+      </div>
+    </div>
+    <!-- Put a square photo named photo.jpg in the repo, or delete this line -->
+    <img src="photo.jpg" alt="Photo of Sebastian Gant">
+  </header>
+
+  <section id="bio">
+    <h2>About me</h2>
+    <p>
+      I am a postdoc in the <a href="https://www.slmath.org/programs/384#overview_programs">motivic homotopy theory program</a> at SLMath.
+      Starting in January 2027, I will be a postdoc at Duke University, working with <a href="https://sites.math.duke.edu/~kgw/">Kirsten Wickelgren</a>.
+    </p>
+    <p>
+      Previously, I was a PhD student at the University of British Columbia, advised by <a href="https://personal.math.ubc.ca/~tbjw/">Ben Williams</a>.
+    </p>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <p>
+      My research uses motivic homotopy theory to study algebraic questions, lately questions about algebraic vector bundles.
+      I am also interested in algebraic topology more broadly.
+    </p>
+    <p>
+      My PhD thesis used motivic homotopy theory to construct a section of a canonical map between Stiefel varieties,
+      or show that no section exists. The (non)existence of a section is tied to splitting free summands
+      from stably free modules and may be seen as an algebraic analogue of the vector fields on spheres problem.
+    </p>
+    <p>Some other things I am interested in:</p>
+    <ul class="interests">
+      <li>Motives and motivic cohomology</li>
+      <li>Motivic cell structures and stable splittings of linear algebraic groups (and their Stiefel varieties)</li>
+      <li>Classifying spaces and their homotopical approximations</li>
+      <li>Algebraic vector bundles and Jouanolou devices</li>
+      <li>The linear spectral sequence</li>
+      <li>Calculations of stable homotopy groups of motivic spheres</li>
+    </ul>
+  </section>
+
+  <section id="papers">
+    <h2>Papers &amp; preprints</h2>
+    <ol class="pubs">
+      <li>
+        <span class="title">Motivic homotopy groups of spheres and free summands of stably free modules</span>, with Ben Williams.
+        <span class="meta">Submitted, 2025.</span>
+        <span class="links"><a href="https://arxiv.org/abs/2510.10033">arXiv</a></span>
+        <details>
+          <summary>Abstract</summary>
+          <p><!-- ABSTRACT 1: paste here -->Working over an algebraically closed field $k$ of characteristic $0$, we show that the motivic stable homotopy groups of the sphere spectrum can be determined entirely from the motivic homotopy groups of the $p$-completed sphere spectra and the motivic cohomology of the ground field, except possibly for the $0$ and $-1$-stems. Using this, we show that the complex realization maps from the motivic homotopy groups to the classical stable homotopy groups are isomorphisms in a range of bidegrees. We apply this to deduce that complex realization also induces isomorphisms on unstable homotopy groups for Stiefel varieties $V_r(\mathbb{A}^n_k)$ in a range of bidegrees. We use this to determine when the projection map$V_r(\mathbb{A}^n_k) \to V_1(\mathbb{A}^n_k)$ admits a right inverse, settling the question of when the universal stably-free module of type $(n,n-1)$ admits a free summand of given rank.</p>
+        </details>
+      </li>
+      <li>
+        <span class="title">The nonexistence of sections of Stiefel varieties and stably free modules</span>.
+        <span class="meta">To appear in Mathematische Zeitschrift, 2026.</span>
+        <span class="links"><a href="https://arxiv.org/abs/2509.07263">arXiv</a></span>
+        <details>
+          <summary>Abstract</summary>
+          <p><!-- ABSTRACT 2: paste here -->Let $V_r(\mathbb{A}^n)$ denote the Stiefel variety $\mathrm{GL}_n/\mathrm{GL}_{n-r}$ over a field. There is a natural projection $p: V_{r+\ell}(\mathbb{A}^n) \to V_r(\mathbb{A}^n)$. The question of whether this projection admits a section was asked by M. Raynaud in 1968. We focus on the case of $r \ge 2$ and provide examples of triples $(r,n,\ell)$ for which a section does not exist. Our results produce examples of stably free modules that do not have free summands of a given rank. To this end, we also construct a splitting of $V_2(\mathbb{A}^n)$ in the motivic stable homotopy category over a field, analogous to the classical stable splitting of the Stiefel manifolds due to I.M. James.</p>
+        </details>
+      </li>
+      <li>
+        <span class="title">Free summands of stably free modules</span>, with Ben Williams.
+        <span class="meta">Forum of Mathematics, Sigma, 2025.</span>
+        <span class="links"><a href="https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/free-summands-of-stably-free-modules/A2990459378CE1E81FC08CE9281E3A3C">journal</a><a href="https://arxiv.org/abs/2409.15445">arXiv</a></span> 
+        <details>
+          <summary>Abstract</summary>
+          <p><!-- ABSTRACT 3: paste here -->Let $R$ be a commutative ring. One may ask when a general $R$-module $P$ that satisfies $P \oplus R \cong R^n$ has a free summand of a given rank. M. Raynaud translated this question into one about sections of certain maps between Stiefel varieties: if $V_r(\mathbb{A}^n)$ denotes the variety $\mathrm{GL}(n) / \mathrm{GL}(n-r)$ over a field $k$, then the projection $V_r(\mathbb{A}^n) \to V_1(\mathbb{A}^n)$ has a section if and only if the following holds: any module $P$ over any $k$-algebra $R$ with the property that $P \oplus R \cong R^n$ has a free summand of rank $r-1$. Using techniques from $\mathbb{A}^1$-homotopy theory, we characterize those $n$ for which the map $V_r(\mathbb{A}^n) \to V_1(\mathbb{A}^n)$ has a section in the cases $r=3,4$ under some assumptions on the base field.
+
+We conclude that if $P \oplus R \cong R^{24m}$ and $R$ contains the field of rational numbers, then $P$ contains a free
+summand of rank $2$. If $R$ contains a quadratically closed field of characteristic $0$, or the field of real numbers,
+then $P$ contains a free summand of rank $3$. The analogous results hold for schemes and vector bundles over them.</p>
+        </details>
+      </li>
+      <li>
+        <span class="title">A geometric splitting of the motive of $\mathrm{GL}_n$</span>.
+        <span class="meta">Preprint, 2024.</span>
+        <span class="links"><a href="https://arxiv.org/abs/2406.14687">arXiv</a></span>
+        <details>
+          <summary>Abstract</summary>
+          <p><!-- ABSTRACT 4: paste here -->A paper by Haynes Miller shows that there is a filtration on the unitary groups that splits in the stable homotopy category, where the stable summands are certain Thom spaces over Grassmannians. We give an algebraic version of this result in the context of Voevodsky's tensor triangulated category of stable motivic complexes $\textbf{DM}(k,R)$, where $k$ is a field. Specifically, we show that there are algebraic analogs of the Thom spaces appearing in Miller's splitting that give rise to an analogous splitting of the motive $M(\textrm{GL}_n)$ in $\textbf{DM}(k,R)$, where $\textrm{GL}_n$ is the general linear group scheme over $k$. </p>
+        </details>
+      </li>
+      <li>
+        <span class="title">Spaces of generators for the $2 \times 2$ complex matrix algebra</span>, with Ben Williams.
+        <span class="meta">New York Journal of Mathematics, 2024. A concise version of my master's thesis.</span>
+        <span class="links"><a href="https://nyjm.albany.edu/j/2024/30-34.html">journal</a><a href="https://arxiv.org/abs/2201.00700">arXiv</a></span>
+        <details>
+          <summary>Abstract</summary>
+          <p><!-- ABSTRACT 5: paste here -->This paper studies $B(r)$, the space of $r$-tuples of $2 \times 2$ complex matrices that generate $\mathrm{Mat}_{2 \times 2}(\mathbb{C})$ as an algebra, considered up to change-of-basis. We show that $B(2)$ is homotopy equivalent to $S^1 \times_{\mathbb{Z}/2\mathbb{Z}} S^2$. For $r > 2$, we determine the rational cohomology of $B(r)$ for degrees less than $4r - 6$. As an application, we use the machinery of <a href="https://arxiv.org/abs/2012.07900">arXiv:2012.07900</a> to prove that for all natural numbers $d$, there exists a ring $R$ of Krull dimension $d$ and a degree-$2$ Azumaya algebra $A$ over $R$ that cannot be generated by fewer than $2\lfloor d/4 \rfloor + 2$ elements.</p>
+        </details>
+      </li>
+    </ol>
+
+    <h3>Theses</h3>
+    <ol class="pubs">
+      <li>
+        <span class="title">On the motivic homotopy theory of Stiefel varieties</span>.
+        <span class="meta">PhD thesis, University of British Columbia, 2026.</span>
+        <span class="links"><a href="https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/24/items/1.0451950">UBC</a></span>
+      </li>
+      <li>
+        <span class="title">Classifying spaces for topological Azumaya algebras</span>.
+        <span class="meta">Master's thesis, University of British Columbia, 2020.</span>
+        <span class="links"><a href="https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/24/items/1.0392923">UBC</a></span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <p>At the University of British Columbia:</p>
+    <ul class="plain">
+      <li><span class="date">Instructor</span><span>MATH 100, Differential Calculus <span class="meta">(three terms)</span></span></li>
+      <li><span class="date">TA</span><span>Algebraic Topology; Group Theory; Rings and Modules; Advanced Linear Algebra; Honours Vector Calculus</span></li>
+    </ul>
+
+    <h3>Federico Ardila's axioms</h3>
+    <!-- Paste the exact wording from your Google Site here if you prefer it -->
+    <ol class="axioms">
+      <li>Mathematical potential is distributed equally among different groups, irrespective of geographic, demographic, and economic boundaries.</li>
+      <li>Everyone can have joyful, meaningful, and empowering mathematical experiences.</li>
+      <li>Mathematics is a powerful, malleable tool that can be shaped and used differently by various communities to serve their needs.</li>
+      <li>Every student deserves to be treated with dignity and respect.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Last updated October 2026.</div>
+</footer>
+
+</body>
+</html>
